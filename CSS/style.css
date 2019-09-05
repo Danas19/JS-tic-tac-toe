@@ -1,0 +1,20 @@
+button {
+    width: 25%;
+    height 25%;
+    font-size: 3em;
+    margin: 1px;
+    border: none;
+    
+    background-color: grey;
+    color: black;
+}
+
+button:hover {
+    background-color: lightgray;
+    color: black;
+}
+
+div.container {
+    width: 300px;
+    height: 300px;
+}

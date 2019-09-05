@@ -36,7 +36,7 @@ function isWinner(xOrY) {
 
 function doActionIfWon(won, xOrY) {
     if (won) {
-        alert(xOrY + ' won.');
+        alert(`${xOrY} won/laimėjo ${xOrY == 'X' ? 'kryžiukai' : 'nuliukai'}`);
             setTimeout(function() {
                 for (let i = 0; i < buttonTags.length; i++) {
                     buttonTags[i].textContent = '-';

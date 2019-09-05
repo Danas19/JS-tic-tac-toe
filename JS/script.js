@@ -1,5 +1,6 @@
 let buttonTags = document.querySelectorAll('button');
 let nextPlayerX = true;
+let numberOfMovesInGame = 0;
 setButtonActions();
 
 let positions = [['-', '-', '-'], ['-', '-', '-'], ['-', '-', '-']];
@@ -10,6 +11,7 @@ function setButtonActions() {
             if (buttonTags[i].textContent != 'X' && buttonTags[i].textContent != 'O') {
                 buttonTags[i].textContent = nextPlayerX ? 'X' : 'O';
                 positions[parseInt(i / 3)][parseInt(i % 3)] = nextPlayerX ? 'X' : 'O'; 
+                ++numberOfMovesInGame;
                 doActionIfWon(isWinner(nextPlayerX ? 'X' : 'O'), nextPlayerX ? 'X' : 'O');
             nextPlayerX = !nextPlayerX;
             }
@@ -37,11 +39,18 @@ function isWinner(xOrY) {
 function doActionIfWon(won, xOrY) {
     if (won) {
         alert(`${xOrY} won/laimėjo ${xOrY == 'X' ? 'kryžiukai' : 'nuliukai'}`);
-            setTimeout(function() {
+        
+            setTimeout(makePositionsEmpty, 2000);
+    } else if (numberOfMovesInGame == 9) {
+        alert(`draw/lygiosios`);
+        setTimeout(makePositionsEmpty, 2000);
+    }
+}
+
+function makePositionsEmpty() {
                 for (let i = 0; i < buttonTags.length; i++) {
                     buttonTags[i].textContent = '-';
                 }
                 positions = [['-', '-', '-'], ['-', '-', '-'], ['-', '-', '-']];
-            }, 2000);
-    }
+    numberOfMovesInGame = 0;
 }

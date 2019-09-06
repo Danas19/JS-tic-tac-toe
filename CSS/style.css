@@ -1,4 +1,4 @@
-button {
+button:not(.restart-game) {
     width: 150px;
     height: 150px;
     font-size: 3em;
@@ -9,7 +9,7 @@ button {
     color: black;
 }
 
-button:hover {
+button:not(.restart-game):hover {
     background-color: lightgray;
     color: black;
 }
@@ -33,4 +33,8 @@ body {
 
 span {
     color: aliceblue;
+}
+
+button.restart-game {
+    font-size: 4em;
 }

@@ -1,4 +1,4 @@
-let buttonTags = document.querySelectorAll('button');
+let buttonTags = document.querySelectorAll('button:not(.restart-game)');
 let nextPlayerX = true;
 let numberOfMovesInGame = 0;
 setButtonActions();
@@ -8,7 +8,9 @@ let positions = [['-', '-', '-'], ['-', '-', '-'], ['-', '-', '-']];
 function setButtonActions() {
     for (let i = 0; i < buttonTags.length; i++) {
         buttonTags[i].addEventListener('click', function() {
-            if (buttonTags[i].textContent != 'X' && buttonTags[i].textContent != 'O') {
+            if (isWinner(nextPlayerX ? 'O' : 'X') || numberOfMovesInGame === 9) {
+                makePositionsEmpty();
+                } else if (buttonTags[i].textContent != 'X' && buttonTags[i].textContent != 'O') {
                 buttonTags[i].textContent = nextPlayerX ? 'X' : 'O';
                 positions[parseInt(i / 3)][parseInt(i % 3)] = nextPlayerX ? 'X' : 'O'; 
                 ++numberOfMovesInGame;
@@ -16,6 +18,13 @@ function setButtonActions() {
             nextPlayerX = !nextPlayerX;
             }
            document.getElementById('console').textContent += ' ' + positions;
+        });
+    }
+    
+    let restartButtons = document.getElementsByClassName('restart-game');
+    for (let i = 0; i < restartButtons.length; i++) {
+        restartButtons[i].addEventListener('click', function() {
+            makePositionsEmpty();
         });
     }
 }
@@ -39,11 +48,8 @@ function isWinner(xOrY) {
 function doActionIfWon(won, xOrY) {
     if (won) {
         alert(`${xOrY} won/laimėjo ${xOrY == 'X' ? 'kryžiukai' : 'nuliukai'}`);
-        
-            setTimeout(makePositionsEmpty, 2000);
     } else if (numberOfMovesInGame == 9) {
         alert(`draw/lygiosios`);
-        setTimeout(makePositionsEmpty, 2000);
     }
 }
 

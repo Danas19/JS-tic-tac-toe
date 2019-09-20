@@ -14,13 +14,14 @@ button:not(.restart-game):hover {
     color: black;
 }
 
-p, pre, h1, h2, h3, h4, h5, h6 {
+pre, h1, h2, h3, h4, h5, h6 {
     font-family: 'Permanent Marker', cursive;
     font-size: 2em;
 }
 
 p, pre {
     color: lightblue;
+    font-size: 2em;
 }
 
 h1, h2, h3, h4, h5, h6 {

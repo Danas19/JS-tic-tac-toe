@@ -5,6 +5,8 @@ setButtonActions();
 
 let positions = [['-', '-', '-'], ['-', '-', '-'], ['-', '-', '-']];
 
+let consoleTag = document.getElementById('console');
+
 function setButtonActions() {
     for (let i = 0; i < buttonTags.length; i++) {
         buttonTags[i].addEventListener('click', function() {
@@ -17,7 +19,7 @@ function setButtonActions() {
                 doActionIfWon(isWinner(nextPlayerX ? 'X' : 'O'), nextPlayerX ? 'X' : 'O');
             nextPlayerX = !nextPlayerX;
             }
-           document.getElementById('console').textContent += ' ' + positions;
+           consoleTag.textContent += '\n' + numberOfMovesInGame + ') ' + positions + '\n';
         });
     }
     

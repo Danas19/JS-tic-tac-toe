@@ -43,3 +43,26 @@ span {
 button.restart-game {
     font-size: 4em;
 }
+
+#game-over-message-div {
+    background-image: url('../IMG/texture-324579_1280.jpg');
+    background-position: fixed;
+    background-size: cover;
+    padding: 150px;
+    display: none;
+}
+
+#game-over-message-div p:first-child {
+    font-family: monospace;
+    font-size: 3em;
+    color: green;
+}
+
+#game-over-message-div p:first-child + p {
+    font-size: 3em;
+    color: red;
+}
+
+#game-over-message-div p:first-child::first-letter {
+    font-size: 1.5em;
+}

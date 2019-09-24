@@ -3,9 +3,20 @@ let nextPlayerX = true;
 let numberOfMovesInGame = 0;
 setButtonActions();
 
+let containerTag = document.getElementsByClassName('container')[0];
+let gameOverMessageDivTag = document.querySelector('#game-over-message-div');
+let gameOverMessagePTag = document.querySelector('#game-over-message-div p')
+
 let positions = [['-', '-', '-'], ['-', '-', '-'], ['-', '-', '-']];
 
 let consoleTag = document.getElementById('console');
+
+gameOverMessageDivTag.style.display = 'none';
+
+gameOverMessageDivTag.addEventListener('click', function() {
+    gameOverMessageDivTag.style.display = 'none';
+    containerTag.style.display = 'block';
+});
 
 function setButtonActions() {
     for (let i = 0; i < buttonTags.length; i++) {
@@ -64,9 +75,13 @@ function isWinner(xOrY) {
 
 function doActionIfWon(won, xOrY) {
     if (won) {
-        alert(`${xOrY} won/laimėjo ${xOrY == 'X' ? 'kryžiukai' : 'nuliukai'}`);
+        gameOverMessagePTag.textContent = `${xOrY} won/laimėjo ${xOrY == 'X' ? 'kryžiukai' : 'nuliukai'}.`;
+       containerTag.style.display = 'none'; 
+        gameOverMessageDivTag.style.display = 'block';
     } else if (numberOfMovesInGame == 9) {
-        alert(`draw/lygiosios`);
+        gameOverMessagePTag.textContent = 'draw/lygiosios';
+        containerTag.style.display = 'none';
+        gameOverMessageDivTag.style.display = 'block';
     }
 }
 

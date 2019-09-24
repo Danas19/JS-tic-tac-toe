@@ -24,6 +24,11 @@ function setButtonActions() {
             if (isWinner(nextPlayerX ? 'O' : 'X') || numberOfMovesInGame === 9) {
                 makePositionsEmpty();
                 } else if (buttonTags[i].textContent != 'X' && buttonTags[i].textContent != 'O') {
+                    if (nextPlayerX) {
+                buttonTags[i].style.color = 'aqua';
+            } else {
+                buttonTags[i].style.color = 'red';
+            }
                 buttonTags[i].textContent = nextPlayerX ? 'X' : 'O';
                 positions[parseInt(i / 3)][parseInt(i % 3)] = nextPlayerX ? 'X' : 'O'; 
                 ++numberOfMovesInGame;
@@ -86,6 +91,9 @@ function doActionIfWon(won, xOrY) {
 }
 
 function makePositionsEmpty() {
+     for (let i = 0; i < buttonTags.length; i++) {
+        buttonTags[i].style.color = 'black';
+    }
                 for (let i = 0; i < buttonTags.length; i++) {
                     buttonTags[i].textContent = '-';
                 }

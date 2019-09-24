@@ -61,8 +61,16 @@ button.restart-game {
 #game-over-message-div p:first-child + p {
     font-size: 3em;
     color: red;
+    text-decoration: underline;
+}
+
+#game-over-message-div p:first-child + p:hover {
+    font-size: 3em;
+    color: darkred;
+    cursor: pointer;
 }
 
 #game-over-message-div p:first-child::first-letter {
     font-size: 1.5em;
 }
+

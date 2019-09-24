@@ -19,7 +19,22 @@ function setButtonActions() {
                 doActionIfWon(isWinner(nextPlayerX ? 'X' : 'O'), nextPlayerX ? 'X' : 'O');
             nextPlayerX = !nextPlayerX;
             }
-           consoleTag.textContent += '\n' + numberOfMovesInGame + ') ' + positions + '\n';
+           consoleTag.textContent += numberOfMovesInGame + ')\n';
+            for (let i = 0; i < positions.length; i++) {
+                for (let j = 0; j < positions[i].length; j++) {
+                    if (positions[i][j] != '-') {
+                        consoleTag.textContent += positions[i][j];
+                        if (j != 2) {
+                        consoleTag.textContent += ' ';
+                        }
+                    } else {
+                        consoleTag.textContent += '—';
+                    }
+                    
+                    
+                }
+                consoleTag.textContent += '\n';
+            }
         });
     }
     

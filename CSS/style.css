@@ -14,7 +14,7 @@ button:not(.restart-game):hover {
     color: black;
 }
 
-#console {
+#history {
     white-space: pre-line;
 }
 

@@ -9,7 +9,7 @@ let gameOverMessagePTag = document.querySelector('#game-over-message-div p')
 
 let positions = [['-', '-', '-'], ['-', '-', '-'], ['-', '-', '-']];
 
-let consoleTag = document.getElementById('console');
+let historyTag = document.getElementById('history');
 
 gameOverMessageDivTag.style.display = 'none';
 
@@ -36,22 +36,23 @@ function setButtonActions() {
                 doActionIfWon(isWinner(nextPlayerX ? 'X' : 'O'), nextPlayerX ? 'X' : 'O');
             nextPlayerX = !nextPlayerX;
             }
-           consoleTag.textContent += numberOfMovesInGame + ')\n';
+           let historyNewText = numberOfMovesInGame + ')\n';
             for (let i = 0; i < positions.length; i++) {
                 for (let j = 0; j < positions[i].length; j++) {
                     if (positions[i][j] != '-') {
-                        consoleTag.textContent += positions[i][j];
+                        historyNewText += positions[i][j];
                         if (j != 2) {
-                        consoleTag.textContent += ' ';
+                        historyNewText += ' ';
                         }
                     } else {
-                        consoleTag.textContent += '—';
+                        historyNewText += '—';
                     }
                     
                     
                 }
-                consoleTag.textContent += '\n';
+                historyNewText += '\n';
             }
+	    historyTag.textContent += historyNewText;
         });
     }
     

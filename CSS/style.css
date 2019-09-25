@@ -36,10 +36,6 @@ body {
     background-color: black;
 }
 
-span {
-    color: aliceblue;
-}
-
 button.restart-game {
     font-size: 4em;
 }
@@ -65,7 +61,6 @@ button.restart-game {
 }
 
 #game-over-message-div p:first-child + p:hover {
-    font-size: 3em;
     color: darkred;
     cursor: pointer;
 }

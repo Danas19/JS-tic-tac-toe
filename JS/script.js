@@ -22,7 +22,8 @@ function setButtonActions() {
     for (let i = 0; i < buttonTags.length; i++) {
         buttonTags[i].addEventListener('click', function() {
             if (isWinner(nextPlayerX ? 'O' : 'X') || numberOfMovesInGame === 9) {
-                makePositionsEmpty();
+                //Clicking on square when other person already won
+		makePositionsEmpty();
                 } else if (buttonTags[i].textContent != 'X' && buttonTags[i].textContent != 'O') {
                     if (nextPlayerX) {
                 buttonTags[i].style.color = 'aqua';
